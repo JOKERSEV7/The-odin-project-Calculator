@@ -1,3 +1,9 @@
+let firtsNum =x;
+let secondNum =c;
+let operator = v;
+
+
+
 const add = function(a, b) {
     return a + b;
 };
