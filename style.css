@@ -1,0 +1,108 @@
+body {
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.container {
+    width: 400px;
+    top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .display-screen {
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+  }
+  
+  input[name="calculator-display"] {
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+   
+  }
+  
+
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .symbol,
+  .operator-btn,
+  .digit-btn,
+  .decimal-btn,
+  .clear-btn {
+    flex: 1;
+    padding: 15px;
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .symbol {
+    background-color: #f44336;
+  }
+  
+  .digit-btn {
+    background-color: #fff;
+    color: #333;
+    transition: background-color 0.3s ease;
+  }
+  
+  .digit-btn:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .equal-btn {
+    background-color: #4caf50;
+  }
+  
+  .decimal-btn {
+    background-color: #e0e0e0;
+  }
+  
+  .clear-btn {
+    background-color: #999;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .clear-btn:hover {
+    background-color: #666;
+  }
+  
+  /* Media Query for Small Screens */
+  @media screen and (max-width: 480px) {
+    .container {
+      padding: 10px;
+    }
+  
+    .symbol,
+    .operator-btn,
+    .digit-btn,
+    .decimal-btn,
+    .clear-btn {
+      padding: 10px;
+      font-size: 14px;
+    }
+  }
+  

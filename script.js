@@ -1,6 +1,71 @@
-let firtsNum =x;
-let secondNum =c;
-let operator = v;
+let firtsNum = null;
+let operator = null;
+
+const calculatorDisplay = document.getElementById("calculator-display");
+const digitsBtn = document.querySelectorAll(".digit-btn");
+const clearBtn = document.querySelector(".clear-btn");
+const operatorBtn = document.querySelectorAll(".operator-btn");
+const equalBtn = document.querySelector(".equal-btn");
+
+
+const decimalBtn = document.querySelector(".decimal-btn");
+
+decimalBtn.addEventListener("click", () => {
+    decimalBtn.disabled = true;
+})
+
+let displayValue = '';
+
+digitsBtn.forEach(btn => {
+    btn.addEventListener("click", () => {
+        displayValue += btn.value;
+        calculatorDisplay.value = displayValue;
+    });
+});
+
+clearBtn.addEventListener("click", () => {
+    displayValue = '';
+    calculatorDisplay.value = '';
+    decimalBtn.disabled = false;
+});
+
+operatorBtn.forEach(btn => {
+    btn.addEventListener("click", () => {
+        if (operator !== null) {
+            let secondNum = Number(displayValue);
+            firtsNum = operate(firtsNum, secondNum, operator);
+            displayValue = '';
+            calculatorDisplay.value = firtsNum;
+        }
+
+        operator = btn. value;
+
+        if (firtsNum === null) {
+            firtsNum = Number(displayValue);
+            displayValue = '';
+        }
+        decimalBtn.disabled = false;
+    });
+
+});
+    
+
+equalBtn.addEventListener("click", () => {
+   if (operator !== null) {
+    let secondNum = Number(displayValue);
+    let result = operate(firtsNum, secondNum, operator);
+   
+  
+
+    calculatorDisplay.value = result;
+    displayValue = '';
+    firtsNum = null;
+    operator= null;
+   }
+   decimalBtn.disabled = false;
+});
+
+
 
 
 
@@ -8,25 +73,31 @@ const add = function(a, b) {
     return a + b;
 };
 const subtract = function(a, b) {
-    return a - b;
+      return (a - b); 
 };
 const multiply = function(a, b) {
     return a * b;
 };
 const divide = function(a, b) {
-    return a / b;
+    if (b == 0 || b == '0') {
+        return ("Error");
+    } else {
+        return (a / b);
+    }
 }
 
 const operate = function(firtsNum, secondNum, operator) {
-    if (operator == "+") {
-        return add(firtsNum, secondNum);
-    }else if(operate == "-") {
-        return subtract(firtsNum, secondNum);
+    let result;
+    if (operator =="+") {
+        result = add(firtsNum, secondNum);
+    }else if(operator == "-") {
+        result = subtract(firtsNum, secondNum);
     }else if (operator == "*") {
-        return multiply(firtsNum, secondNum);
-    }else {
-        return divide(firtsNum, secondNum);
-    }
+        result = multiply(firtsNum, secondNum);
+    }else if (operator == "/"){
+        result = divide(firtsNum, secondNum);
+    };
+    return Math.round(result);
     
 };
 
