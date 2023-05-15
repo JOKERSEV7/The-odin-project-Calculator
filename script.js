@@ -6,6 +6,7 @@ const digitsBtn = document.querySelectorAll(".digit-btn");
 const clearBtn = document.querySelector(".clear-btn");
 const operatorBtn = document.querySelectorAll(".operator-btn");
 const equalBtn = document.querySelector(".equal-btn");
+const backSpaceBtn = document.querySelector(".back-btn")
 
 
 const decimalBtn = document.querySelector(".decimal-btn");
@@ -65,6 +66,9 @@ equalBtn.addEventListener("click", () => {
    decimalBtn.disabled = false;
 });
 
+backSpaceBtn.addEventListener("click", () => {
+    backSpace();
+})
 
 
 
@@ -100,4 +104,9 @@ const operate = function(firtsNum, secondNum, operator) {
     return Math.round(result);
     
 };
+
+function backSpace() {
+    calculatorDisplay.value = calculatorDisplay.value.slice(0, -1);
+    displayValue = calculatorDisplay.value;
+}
 
